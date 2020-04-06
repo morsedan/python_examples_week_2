@@ -69,7 +69,7 @@ def binary_search(array, value):
         else:
             if value < array[middle]:
                 # search lower half
-                end = middle -1
+                end = middle - 1
             else:
                 # search upper half
                 start = middle + 1
@@ -77,10 +77,16 @@ def binary_search(array, value):
     return found
 
 # SORTING
-from book import Book
-from copy import  deepcopy
-import time
-import  csv
 
-def insertion_sort(books):
-    pass
+def insertion_sort(numbers):
+    for i in range(1, len(numbers)):
+        current_num = numbers[i]
+        j = i
+        while j > 0 and current_num < numbers[j - 1]:
+            numbers[j] = numbers[j - 1]
+            j -= 1
+        numbers[j] = current_num
+    return numbers
+
+nums = [0,1,9,2,8,3,7,4,6,4,5]
+print(insertion_sort(nums.copy()))
