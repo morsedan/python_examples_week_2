@@ -17,15 +17,15 @@ def count_sort(numbers):
         max_number = 0
     counts = [0 for _ in range(min_number, max_number+1)]
     for number in numbers:
-        counts[number] += 1
+        counts[number-min_number] += 1
     for i in range(len(counts)-1):
         counts[i+1] += counts[i]
     for number in numbers:
-        sorted[counts[number-1]] = number
-        counts[number] -= 1
+        sorted[counts[number-min_number]-1] = number
+        counts[number-min_number] -= 1
     return sorted
 
-nums = [7,6,5,4,3,2,1]
+nums = [7,6,5,-7,11,-5,4,3,2,1, -1, -2, 0, -5]
 print("CS", count_sort(nums.copy()))
 
 
@@ -39,7 +39,7 @@ def selection_sort(numbers):
     numbers[0], numbers[min_index] = numbers[min_index], numbers[0]
     return [numbers[0]] + selection_sort(numbers[1:])
 
-print("SS", selection_sort(nums.copy()))
+# print("SS", selection_sort(nums.copy()))
 
 
 def recipe_batches(recipe, supplies):
@@ -58,5 +58,25 @@ ans = recipe_batches(
   { 'milk': 138, 'butter': 48, 'flour': 51 }
 )
 
-print("rec"
-      "", ans)
+# print("rec"
+#       "", ans)
+
+
+b = ['Bob', 'Slack', ['reddit', '89', 101, ['alacritty', '(brackets)', 5, 375]], 0, ['{slice, owned}'], 22]
+
+def print_items(arr):
+    # flattened = []
+    flattened = flatten(arr)
+    for item in flattened:
+        print(item)
+
+
+def flatten(arr, flattened=[]):
+    for item in arr:
+        if type(item) is list:
+            flatten(item, flattened)
+        else:
+            flattened.append(item)
+    return flattened
+
+print_items(b)
