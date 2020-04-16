@@ -42,5 +42,6 @@ def count_sort(array):
     return sorted_numbers
 
 array = [4,2,2,8,3,3,1]
+nums = [7,6,5,-7,11,-5,4,3,2,1, -1, -2, 0, -5]
 print(count_sort(array))
-
+primes(print(count_sort(nums)))
