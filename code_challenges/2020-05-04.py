@@ -1,5 +1,5 @@
 """
-Problem 1: selectin sort
+Problem 1: selection sort
 Break
 Problem 2: none
 Start time: ??
